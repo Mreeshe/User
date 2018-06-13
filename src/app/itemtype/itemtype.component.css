@@ -1,0 +1,23 @@
+
+	@media screen and (max-width:900px){.display-block{display:none}}
+	.modal-header { background-color: #0e6994;color:fff}
+	.modal-title {color:#fff;}		
+	.form-control {
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom-color: #d2d6de;
+	background-image: none;
+    border-right: 0;
+    border-top: 0;
+    border-left: 0;
+    border-bottom: 1px solid #ccc;
+    
+}
+.layout-boxed .wrapper {
+  max-width: 1250px;
+  margin: 0 auto;
+  min-height: 100%;
+  box-shadow:#6C9;
+  position: relative;
+}
+ .id{color:#036;font-weight:bold;font-size:18px;}

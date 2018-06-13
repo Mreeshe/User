@@ -1,0 +1,255 @@
+<body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+    
+  <app-header></app-header>
+   <app-sidebar></app-sidebar>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper"  style="height:700px  !important;"><!-- Content Header (Page header) -->>
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li class="active">Doctor Details</li>
+        </ol>
+      </section>
+  
+      <!-- Main content -->
+      <section class="content"><br/>
+        <div class="col-md-12">
+            <!-- MAP & BOX PANE -->
+            <div class="box box-primary">
+              <div class="box-header with-border">
+                <h3 class="box-title">Doctor Details</h3>
+  
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+          <i class="fa fa-minus" style="color:#fff;"></i>
+                  </button>
+               </div>
+              </div>
+              <!-- /.box-header -->
+              <div class="box-body no-padding">
+                <!-- Map will be created here -->
+            <form class="form-horizontal">
+                       <div class="col-lg-12"><br/>
+                            <button type="button" class="btn btn-primary" (click)="demo()">
+                        <i class="fa fa-plus-circle"></i> Add Doctor Details </button>
+                        </div>
+                        <div class="col-lg-12 table-responsive" style="border:none;">&nbsp;
+                          <table class="table table-bordered table-hover" id="example1" style="width:100%;">
+            <thead>
+  
+           <tr>
+                 
+                 <th class="th">Doctor Name</th>
+           <th class="th">Center Name</th>
+                 <th class="th">Address</th>
+           <th class="th">Phone no.</th>
+                 <th class="th">Action</th>
+          </tr>
+           </thead>
+  <tbody>
+      <tr *ngFor="let profiles of profileInfo" >
+          <td class="td">{{profiles.doctorname}}</td>
+          <td class="td">{{profiles.clinicname}}</td>
+          <td class="td">{{profiles.addresscentre}}</td>
+          <td class="td">{{profiles.mobile}}</td>
+           <td class="td">
+         
+             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit"><i class="fa fa-edit"></i>&nbsp;Edit</button></td>
+                </tr>
+                  
+          </tbody>
+         </table>		   
+                  </div>
+                    </form> 		    
+               
+               </div>
+          
+            </div>
+         </div>
+      
+     </section>
+   </div>
+  <app-footer></app-footer>
+   </div>
+  <!-- ./wrapper -->
+  <!-- ./modal -->
+  <div id="diagnostic" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-md">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><i class="fa  fa-plus-square"></i> Add Doctor Details</h4>
+        </div>
+    
+        <div class="modal-body ">
+        <div class="row">
+            <!-- <form class="" role="form" [formGroup]="postdata" (ngSubmit)="onSubmitPost()"> -->
+
+        <div class="form-group col-lg-6">
+          <input type="text" name="" id="text1" placeholder="Doctor Name"  class="form-control">
+      </div>
+        
+      <div class="form-group col-lg-6">
+          <select class="form-control">
+            <option >Clinic/Center Name</option>
+              <option  *ngFor="let profiles1 of profileInfo1" value={{profiles1.clinicid}}>
+                {{profiles1.clinicname}}</option>                        
+        </select>
+      </div>
+     <div class="form-group col-lg-6">
+    <div class="button-group">
+          <button type="button" class="lbutton btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" style="background-color:transparent;border:none;font-size:14px;color:#999;">Available Days&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="caret"></span></button>
+                  <ul class="dropdown-menu">
+                    <li><a href="#" class="small" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;Mon Day</a></li>
+                    <li><a href="#" class="small" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;Tues Day</a></li>
+                    <li><a href="#" class="small" data-value="option3" tabIndex="-1"><input type="checkbox"/>&nbsp;Wedness Day</a></li>
+                    <li><a href="#" class="small" data-value="option4" tabIndex="-1"><input type="checkbox"/>&nbsp;Thurs Day</a></li>
+                    <li><a href="#" class="small" data-value="option5" tabIndex="-1"><input type="checkbox"/>&nbsp;Fri Day</a></li>
+                    <li><a href="#" class="small" data-value="option6" tabIndex="-1"><input type="checkbox"/>&nbsp;Satur Day</a></li>
+                    <li><a href="#" class="small" data-value="option6" tabIndex="-1"><input type="checkbox"/>&nbsp;Sun Day</a></li>
+                  </ul>
+                    </div>
+      </div>
+    <div class="form-group col-lg-6">
+          <input type="text" name="" id="timepicker" placeholder="Time"  class="form-control">
+      </div>
+       <div class="form-group col-lg-12">
+          <textarea input type="text" name="" id="text1" placeholder="Address of Center"  class="form-control"></textarea>
+      </div>
+      <div class="form-group col-lg-6">
+          <select class="form-control">
+            <option>Specialization</option>
+              <option>Child</option>
+              <option>Spcl 2</option>
+              <option>Spcl 3</option>                                  
+        </select>
+      </div>
+      <div class="form-group col-lg-6">
+          <input type="text" name="" id="text1" placeholder="Tag Line"  class="form-control">
+      </div>
+        <div class="form-group col-lg-6">
+          <input type="text" name="" id="text1" placeholder="City"  class="form-control">
+      </div>
+      <div class="form-group col-lg-6">
+          <input type="text" name="" id="text1" placeholder="Locality"  class="form-control">
+      </div>
+      <div class="form-group col-lg-6">
+        <input type="text" class="form-control" data-inputmask='"mask": " 999-999"' data-mask placeholder="PIN Code">
+      </div>
+      <div class="form-group col-lg-6">
+          <label class="">Upload Photo</label>
+        <input type="file" name="" class="">
+     </div> 
+     
+      <div class="form-group col-lg-6">
+          <input type="text" name="" id="text1" placeholder="Email-Id"  class="form-control">
+      </div>
+      <div class="form-group col-lg-6">
+        <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask placeholder="mobile no">
+      </div>
+          <button type="button" class="btn btn-primary" type ="submit" >Submit</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <!-- </form> -->
+  </div>	
+     </div>
+       
+      
+      </div>
+  
+    </div>
+  </div>
+  <!--edit-->
+  <div id="edit" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-md">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><i class="fa  fa-edit"></i> Edit Doctor Details</h4>
+        </div>
+    
+        <div class="modal-body ">
+        <div class="row">
+        <div class="form-group col-lg-6">
+          <input type="text" name="" id="text1" placeholder="Doctor Name"  class="form-control">
+      </div>
+        
+      <div class="form-group col-lg-6">
+          <select class="form-control">
+            <option>Clinic/Center Name</option>
+              <option>Center 1</option>
+              <option>Center 2</option>
+              <option>Center 3</option>                                  
+        </select>
+      </div>
+     <div class="form-group col-lg-6">
+    <div class="button-group">
+          <button type="button" class="lbutton btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" style="background-color:transparent;border:none;font-size:14px;color:#999;">Available Days&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="caret"></span></button>
+                  <ul class="dropdown-menu">
+                    <li><a href="#" class="small" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;Mon Day</a></li>
+                    <li><a href="#" class="small" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;Tues Day</a></li>
+                    <li><a href="#" class="small" data-value="option3" tabIndex="-1"><input type="checkbox"/>&nbsp;Wedness Day</a></li>
+                    <li><a href="#" class="small" data-value="option4" tabIndex="-1"><input type="checkbox"/>&nbsp;Thurs Day</a></li>
+                    <li><a href="#" class="small" data-value="option5" tabIndex="-1"><input type="checkbox"/>&nbsp;Fri Day</a></li>
+                    <li><a href="#" class="small" data-value="option6" tabIndex="-1"><input type="checkbox"/>&nbsp;Satur Day</a></li>
+                    <li><a href="#" class="small" data-value="option6" tabIndex="-1"><input type="checkbox"/>&nbsp;Sun Day</a></li>
+                  </ul>
+                    </div>
+      </div>
+    <div class="form-group col-lg-6">
+          <input type="text" name="" id="text1" placeholder="Time"  class="form-control">
+      </div>
+       <div class="form-group col-lg-12">
+          <textarea input type="text" name="" id="text1" placeholder="Address of Center"  class="form-control"></textarea>
+      </div>
+      <div class="form-group col-lg-6">
+          <select class="form-control">
+            <option>Specialization</option>
+              <option>Child</option>
+              <option>Spcl 2</option>
+              <option>Spcl 3</option>                                  
+        </select>
+      </div>
+      <div class="form-group col-lg-6">
+          <input type="text" name="" id="text1" placeholder="Tag Line"  class="form-control">
+      </div>
+        <div class="form-group col-lg-6">
+          <input type="text" name="" id="text1" placeholder="City"  class="form-control">
+      </div>
+      <div class="form-group col-lg-6">
+          <input type="text" name="" id="text1" placeholder="Locality"  class="form-control">
+      </div>
+      <div class="form-group col-lg-6">
+        <input type="text" class="form-control" data-inputmask='"mask": " 999-999"' data-mask placeholder="PIN Code">
+      </div>
+      <div class="form-group col-lg-6">
+          <label class="">Upload Photo</label>
+        <input type="file" name="" class="">
+     </div> 
+     
+      <div class="form-group col-lg-6">
+          <input type="text" name="" id="text1" placeholder="Email-Id"  class="form-control">
+      </div>
+      <div class="form-group col-lg-6">
+        <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask placeholder="mobile no">
+      </div>
+     
+  </div>
+   </div>
+        <div class="modal-footer">
+       <button type="button" class="btn btn-primary" >Submit</button>
+       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      
+      </div>
+  
+    </div>
+  </div>
+  
+  </body>
+  

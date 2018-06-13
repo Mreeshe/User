@@ -1,0 +1,408 @@
+<body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+    <app-header></app-header>
+  <app-sidebar></app-sidebar>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper" style="height:700px  !important;"><!-- Content Header (Page header) -->
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li class="active">Settlement</li>
+        </ol>
+      </section>
+  
+      <!-- Main content -->
+      <section class="content"><br/>
+        <div class="col-md-12">
+            <!-- MAP & BOX PANE -->
+            <div class="box box-primary">
+              <div class="box-header with-border">
+                <h3 class="box-title">Patient Details</h3>
+  
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+          <i class="fa fa-minus" style="color:#fff;"></i>
+                  </button>
+               </div>
+              </div>
+              <!-- /.box-header -->
+              <div class="box-body no-padding">
+                <!-- Map will be created here -->
+            <form class="form-horizontal">
+                       <div class="col-lg-12"><br/>
+                            <div class="form-group col-lg-4">
+                                <input type="text" class="form-control" id="inline_search"name="totalpage"(keyup.enter)="inline_search()" placeholder="Enter Patient Name/Id">
+                             </div>
+                             
+                             <div class="col-lg-6 form-group">
+                               <button type="button" id="b1"  class="btn btn-primary "  (click)="inline_search()">
+                                 <i class="fa fa-search"></i>
+                                &nbsp;Search Patient</button>
+                            &nbsp;
+                            <button type="button" id="b1"  class="btn btn-primary" (click) = "demo()"><i class="fa fa-plus"></i>&nbsp;Add Patient</button>
+                             </div>
+                          </div>
+                        <div class="col-lg-12 table-responsive" id="t1"  style="border:none;">&nbsp;
+                         <table class="table table-bordered table-hover" id="example1" style="width:100%;">
+            <thead>
+  
+           <tr>
+                 
+                 <th class="th">Patient Id</th>
+                 <th class="th">Patient Name</th>
+           <th class="th">Email</th>
+                 <th class="th">Phone</th>
+                  <th class="th">Address</th>
+                   <th class="th">Action</th>
+          </tr>
+           </thead>
+  <tbody>
+           <!-- <tr>
+          
+                 <td class="td">------</td>
+                 <td class="td">------</td>
+                 <td class="td">------</td>
+                 <td class="td">------</td>
+                 <td class="td">------</td>
+                  <td class="td"><button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#edit"><i class="fa fa-edit"></i>&nbsp;&nbsp;Edit</button>&nbsp;<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#view"><i class="fa fa-file"></i>&nbsp;&nbsp;View</button></td>
+                </tr>
+                <tr>
+          
+                  <td class="td">------</td>
+                  <td class="td">------</td>
+                  <td class="td">------</td>
+                 <td class="td">------</td>
+                 <td class="td">------</td>
+                  <td class="td"><button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#edit"><i class="fa fa-edit"></i>&nbsp;&nbsp;Edit</button>&nbsp;<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#view"><i class="fa fa-file"></i>&nbsp;&nbsp;View</button></td>
+                </tr> -->
+
+                <tr *ngFor="let profiles of profileInfo"  >
+                  <td class="td">{{profiles.patientid}}</td>
+                  <td class="td">{{profiles.name}}</td>
+                  <td class="td">{{profiles.email}}</td>
+                  <td class="td">{{profiles.mobile}}</td>
+                  <td class="td">{{profiles.address}}</td>
+                   <td class="td">
+                      <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#edit"><i class="fa fa-edit"></i>&nbsp;&nbsp;Edit</button>&nbsp;<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#view"><i class="fa fa-file"></i>&nbsp;&nbsp;View</button></td>
+               
+                     </tr>
+                  
+
+                  
+          </tbody>
+         </table>		   
+                  </div>
+                    </form> 		    
+               
+               </div>
+          
+            </div>
+         </div>
+      
+     </section>
+   </div>
+    
+  
+   </div>
+   <app-footer></app-footer>
+  <div id="profile" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-md">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><i class="fa  fa-plus-square"></i> Add Patient</h4>
+        </div>
+    
+        <div class="modal-body ">
+        <div class="row">
+       
+      <div class="form-group col-lg-12">
+      <div class="col-lg-3"><img src="assets/dist/img/avatar5.png" class="img-responsive"></div>
+      <div class="col-lg-3" style="margin-top:60px;">
+      <label>Upload Photo</label>
+          <input type="file" name="" class="">
+       </div>
+     </div>
+      <div class="form-group col-lg-6">
+          <input type="text" name="" id="text1" placeholder="First Name"  class="form-control">
+      </div>
+    <div class="form-group col-lg-6">
+          <input type="text" name="" id="text1" placeholder="Last Name"  class="form-control">
+      </div>
+      <div class="form-group col-lg-6">
+          <select class="form-control">
+            <option>Gender</option>
+              <option>Male</option>
+              <option>Fe-Male</option>                                 
+        </select>
+      </div>
+      <div class="form-group col-lg-6">
+          <select class="form-control">
+            <option>Marritial Status</option>
+              <option>Married</option>
+              <option>un-Married</option>                                 
+        </select>
+      </div>
+      <div class="form-group col-lg-6">
+        <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask placeholder="mobile no">
+      </div>
+                  
+     
+      <div class="form-group col-lg-6">
+          <input type="email" name="" id="text1" placeholder="Email-Id"  class="form-control">
+      </div>
+       <div class="form-group col-lg-6">
+          <select class="form-control">
+            <option>Blood Group</option>
+              <option>A+</option>
+              <option>B+</option>                                 
+        </select>
+      </div>
+    <!-- <div class="form-group col-lg-6">
+          <input type="text" name="" id="text1" placeholder="Nationality"  class="form-control">
+      </div>-->
+      <div class="input-group  form-group date col-lg-6">
+       <input type="text" class="form-control pull-right" id="datepicker" placeholder="Date Of Birth">
+     </div>
+     <!--<div class="form-group col-lg-6">
+          <input type="text" name="" id="text1" placeholder="Code"  class="form-control">
+      </div>-->
+     
+      <div class="form-group col-lg-6">
+          <textarea input type="text" name="" id="text1" placeholder="Street Address"  class="form-control"></textarea>
+      </div>
+    <!--<div class="form-group col-lg-6">
+          <input type="text" name="" id="text1" placeholder="Locality"  class="form-control">
+      </div>-->
+      <div class="form-group col-lg-6">&nbsp;
+          <select class="form-control">
+            <option>City</option>
+              <option>Bangalore</option>
+              <option>Bhubaneswar</option>                                 
+        </select>
+      </div>
+      <div class="form-group col-lg-6">
+          <select class="form-control">
+            <option>State</option>
+              <option>Karnataka</option>
+              <option>Orissa</option>                                 
+        </select>
+      </div>
+      <div class="form-group col-lg-6">
+        <input type="text" class="form-control" data-inputmask='"mask": "999-999"' data-mask placeholder="PIN Code">
+      </div>
+     
+      <div class="form-group col-lg-12" style="background-color:#0e6994;">
+         <h4 style="color:#fff">Emergency Contact</h4>
+      </div>
+      <div class="col-lg-12 table-responsive" style="border:none;">
+         <table id="mytable" class="table">
+      
+      <tbody>
+          <tr>
+             <td>
+               <input type="text" id="fee-1" class="fee form-control" name="fee" placeholder="Name">
+             </td>
+             <td>
+               <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask placeholder="mobile no">
+             </td>
+              <td>
+                <button class="btn btn-danger btn-xs" type="button"><i class="fa fa-times"></i>&nbsp;</button>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+  <br>
+  <a href="#" id="insert-more" class="pull-right"> <b><i class="fa  fa-plus-circle"></i> Add More </b> </a>
+  <br>		   
+                  </div>
+     </div>
+     <div class="modal-footer">
+       <button type="button" class="btn btn-primary" >Save</button>
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+       
+       </div> 
+      </div>
+  
+    </div>
+  </div>
+  <!--edit-->
+  <div id="edit" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-md">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><i class="fa  fa-edit"></i> Edit Patient Details</h4>
+        </div>
+    
+       <div class="modal-body ">
+        <!--step-1-->
+        <div class="row">
+       
+      <div class="form-group col-lg-12">
+      <div class="col-lg-3"><img src="assets/dist/img/avatar5.png" class="img-responsive"></div>
+      <div class="col-lg-3" style="margin-top:60px;">
+      <label>Upload Photo</label>
+          <input type="file" name="" class="">
+       </div>
+     </div>
+      <div class="form-group col-lg-6">
+          <input type="text" name="" id="text1" placeholder="First Name"  class="form-control">
+      </div>
+    <div class="form-group col-lg-6">
+          <input type="text" name="" id="text1" placeholder="Last Name"  class="form-control">
+      </div>
+      <div class="form-group col-lg-6">
+          <select class="form-control">
+            <option>Gender</option>
+              <option>Male</option>
+              <option>Fe-Male</option>                                 
+        </select>
+      </div>
+      <div class="form-group col-lg-6">
+          <select class="form-control">
+            <option>Marritial Status</option>
+              <option>Married</option>
+              <option>un-Married</option>                                 
+        </select>
+      </div>
+      <div class="form-group col-lg-6">
+        <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask placeholder="mobile no">
+      </div>
+                  
+     
+      <div class="form-group col-lg-6">
+          <input type="email" name="" id="text1" placeholder="Email-Id"  class="form-control">
+      </div>
+       <div class="form-group col-lg-6">
+          <select class="form-control">
+            <option>Blood Group</option>
+              <option>A+</option>
+              <option>B+</option>                                 
+        </select>
+      </div>
+    <!-- <div class="form-group col-lg-6">
+          <input type="text" name="" id="text1" placeholder="Nationality"  class="form-control">
+      </div>-->
+      <div class="input-group  form-group date col-lg-6">
+       <input type="text" class="form-control pull-right" id="datepicker1" placeholder="Date Of Birth">
+     </div>
+     <!--<div class="form-group col-lg-6">
+          <input type="text" name="" id="text1" placeholder="Code"  class="form-control">
+      </div>-->
+    
+      <div class="form-group col-lg-6">
+          <textarea input type="text" name="" id="text1" placeholder="Street Address"  class="form-control"></textarea>
+      </div>
+    <!--<div class="form-group col-lg-6">
+          <input type="text" name="" id="text1" placeholder="Locality"  class="form-control">
+      </div>-->
+      <div class="form-group col-lg-6">&nbsp;
+          <select class="form-control">
+            <option>City</option>
+              <option>Bangalore</option>
+              <option>Bhubaneswar</option>                                 
+        </select>
+      </div>
+      <div class="form-group col-lg-6">
+          <select class="form-control">
+            <option>State</option>
+              <option>Karnataka</option>
+              <option>Orissa</option>                                 
+        </select>
+      </div>
+      <div class="form-group col-lg-6">
+        <input type="text" class="form-control" data-inputmask='"mask": "999-999"' data-mask placeholder="PIN Code">
+      </div>
+      
+      <div class="form-group col-lg-12" style="background-color:#0e6994;">
+  <h4 style="color:#fff">Emergency Contact</h4>
+
+      </div>
+      <div class="col-lg-12 table-responsive" style="border:none;">
+         <table id="mytable1" class="table">
+      
+      <tbody>
+          <tr>
+             <td>
+               <input type="text" id="fee-1" class="fee form-control" name="fee" placeholder="Name">
+             </td>
+             <td>
+               <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask placeholder="mobile no">
+             </td>
+              <td><button class="btn btn-danger btn-xs" type="button"><i class="fa fa-times"></i>&nbsp;</button>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+  <br>
+  <a href="#" id="insert-more1" class="pull-right"> <b><i class="fa  fa-plus-circle"></i> Add More </b> </a>
+  <br>		   
+                  </div>
+     </div>
+     <div class="modal-footer">
+       <button type="button" class="btn btn-primary" >Save</button>
+     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+     
+       </div>
+      
+      </div>
+  
+    </div>
+  </div>
+  <!--view-->
+  <div id="view" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-md">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><i class="fa  fa-plus-square"></i> View Patient details</h4>
+        </div>
+    
+        <div class="modal-body ">
+        <div class="row">
+        <div class="form-group col-lg-6"><img src="assets/dist/img/avatar5.png" class="img-responsive"></div>
+          <div class="form-group col-lg-6">
+            <div class="col-lg-6"><label>Profile Code :</label></div>
+              <div class="col-lg-6">VD001</div>
+          </div>
+          <div class="form-group col-lg-6">
+            <div class="col-lg-6"><label>Profile Name :</label></div>
+              <div class="col-lg-6">Ravi Kumar</div>
+          </div>
+          <div class="form-group col-lg-6">
+            <div class="col-lg-6"><label>Email Id :</label></div>
+              <div class="col-lg-6">raviku@gmail.com</div>
+          </div>
+          <div class="form-group col-lg-6">
+            <div class="col-lg-6"><label>Phone No :</label></div>
+              <div class="col-lg-6">9086473892</div>
+          </div>
+          <div class="form-group col-lg-6">
+            <div class="col-lg-6"><label>Blood Group :</label></div>
+              <div class="col-lg-6">B+</div>
+          </div>
+          <div class="form-group col-lg-12">
+            <div class="col-lg-3"><label>Interests :</label></div>
+              <div class="col-lg-9">Interest1,Interest2</div>
+          </div>
+        
+        </div>
+       </div> 
+      </div>
+  
+    </div>
+  </div>
+  
+  
+  </body>
+  

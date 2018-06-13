@@ -1,0 +1,276 @@
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+    <app-header></app-header>
+      <app-sidebar></app-sidebar><!-- Left side column. contains the logo and sidebar -->
+      
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper" style="height:700px  !important;"><!-- Content Header (Page header) -->
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">User</li>
+          </ol>
+        </section>
+    
+        <!-- Main content -->
+        <section class="content"><br/>
+          <div class="col-md-12">
+              <!-- MAP & BOX PANE -->
+              <div class="box box-primary">
+                <div class="box-header with-border" style="">
+                  <h3 class="box-title">User Details</h3>
+    
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+            <i class="fa fa-minus" style="color:#fff;"></i>
+                    </button>
+                 </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body no-padding">
+                  <!-- Map will be created here -->
+              <form class="form-horizontal">
+                         <div class="col-lg-12"><br/>
+                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#user">
+                          <i class="fa fa-plus-circle"></i> ADD USER</button>
+                          </div>
+                          <div class="col-lg-12 table-responsive" style="border:none;">&nbsp;
+                            <table class="table table-bordered" id="example2" style="width:100%;">
+              <thead>
+    
+             <tr>
+                  
+                   <th class="th">Code</th>
+             <th class="th">Name</th>
+                   <th class="th">Email-Id</th>
+             <th class="th">Phone no.</th>
+                    <th class="th">Action</th>
+            </tr>
+             </thead>
+    <tbody>
+             <tr>
+            
+                   <td class="td">------</td>
+                   <td class="td">------</td>
+                   <td class="td">------</td>
+                   <td class="td">------</td>
+                    <td class="td"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit"><i class="fa fa-edit"></i>&nbsp;Edit</button></td>
+                  </tr>
+                  <tr>
+            
+                   <td class="td">------</td>
+                   <td class="td">------</td>
+                   <td class="td">------</td>
+                   <td class="td">------</td>
+                    <td class="td"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit"><i class="fa fa-edit"></i>&nbsp;Edit</button></td>
+                  </tr>
+                    
+            </tbody>
+           </table>		   
+                    </div>
+                      </form> 		    
+                 
+                 </div>
+            
+              </div>
+           </div>
+        
+       </section>
+     </div>
+   
+
+    
+     </div>
+     <app-footer></app-footer>
+    <div id="user" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-md">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"><i class="fa  fa-plus-square"></i> Add User</h4>
+          </div>
+      
+          <div class="modal-body ">
+          <div class="row">
+          <div class="form-group col-lg-6">
+            <select class="form-control">
+              <option>User Type</option>
+                <option>Sub-Org Admin</option>
+                <option>Org Admin</option>
+                <option>Center Admin</option>
+                <option>Reservation</option>
+                <option>Sample Collector</option>
+                                          
+          </select>
+        </div>
+      <!-- <div class="form-group col-lg-12">
+          <label class="radio-inline"><input type="radio" name="optradio">Internal</label>
+         <label class="radio-inline"><input type="radio" name="optradio">External</label>
+        </div>-->
+       
+      <div class="form-group col-lg-6">
+            <select class="form-control">
+              <option>Sub-Org</option>
+                <option>Sub-Org 1</option>
+                <option>Sub-Org 2</option>
+                <option>Sub-Org 3</option>
+                <option>Sub-Org 4</option>
+                <option>Sub-Org 5</option> 
+                                            
+          </select>
+        </div>
+        <div class="form-group col-lg-6">
+            <select class="form-control">
+              <option>Diagnostic Center</option>
+                <option>Center 1</option>
+                <option>Center 2</option>
+                <option>Center 3</option>
+                <option>Center 4</option>
+                <option>Center 5</option> 
+                                            
+          </select>
+        </div>
+        <div class="form-group col-lg-6">
+            <input type="text" name="" id="text1" placeholder="First Name"  class="form-control">
+        </div>
+        <div class="form-group col-lg-6">
+            <input type="text" name="" id="text1" placeholder="Last Name"  class="form-control">
+        </div>
+        <div class="form-group col-lg-6">
+          <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask placeholder="mobile no">
+        </div>
+        <div class="form-group col-lg-6">
+            <input type="text" name="" id="text1" placeholder="Email-Id"  class="form-control">
+        </div>
+       
+        <div class="form-group col-lg-6">
+            <input type="text" name="" id="text1" placeholder="Password"  class="form-control">
+        </div>
+        <div class="form-group col-lg-6">
+            <input type="text" name="" id="text1" placeholder="Confirm Password"  class="form-control">
+        </div>
+       <div class="form-group col-lg-6">
+            <input type="text" name="" id="text1" placeholder="Speciality"  class="form-control">
+        </div>
+        <div class="form-group col-lg-6">
+            <input type="text" name="" id="text1" placeholder="Code"  class="form-control">
+        </div>
+         <div class="form-group col-lg-6">
+            <label class="">Upload Photo</label>
+          <input type="file" name="" class="">
+       </div>
+    </div>	
+       </div>
+          <div class="modal-footer">
+         <button type="button" class="btn btn-primary" >Submit</button>
+         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        
+        </div>
+    
+      </div>
+    </div>
+    <!--edit-->
+    <div id="edit" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-md">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"><i class="fa  fa-edit"></i> Edit User Details</h4>
+          </div>
+      
+          <div class="modal-body ">
+          <div class="row">
+          <div class="form-group col-lg-6">
+            <select class="form-control">
+              <option>User Type</option>
+                <option>Sub-Org Admin</option>
+                <option>Org Admin</option>
+                <option>Center Admin</option>
+                <option>Reservation</option>
+                <option>Sample Collector</option>
+                                              
+          </select>
+        </div>
+       <!--<div class="form-group col-lg-12">
+          <label class="radio-inline"><input type="radio" name="optradio">Internal</label>
+         <label class="radio-inline"><input type="radio" name="optradio">External</label>
+        </div>-->
+       
+      <div class="form-group col-lg-6">
+            <select class="form-control">
+              <option>Sub-Org</option>
+                <option>Sub-Org 1</option>
+                <option>Sub-Org 2</option>
+                <option>Sub-Org 3</option>
+                <option>Sub-Org 4</option>
+                <option>Sub-Org 5</option> 
+                                            
+          </select>
+        </div>
+        <div class="form-group col-lg-6">
+            <select class="form-control">
+              <option>Diagnostic Center</option>
+                <option>Center 1</option>
+                <option>Center 2</option>
+                <option>Center 3</option>
+                <option>Center 4</option>
+                <option>Center 5</option> 
+                                            
+          </select>
+        </div>
+        <div class="form-group col-lg-6">
+            <input type="text" name="" id="text1" placeholder="First Name"  class="form-control">
+        </div>
+        <div class="form-group col-lg-6">
+            <input type="text" name="" id="text1" placeholder="Last Name"  class="form-control">
+        </div>
+        <div class="form-group col-lg-6">
+          <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask placeholder="mobile no">
+        </div>
+        <div class="form-group col-lg-6">
+            <input type="text" name="" id="text1" placeholder="Email-Id"  class="form-control">
+        </div>
+       
+        <div class="form-group col-lg-6">
+            <input type="text" name="" id="text1" placeholder="Password"  class="form-control">
+        </div>
+        <div class="form-group col-lg-6">
+            <input type="text" name="" id="text1" placeholder="Confirm Password"  class="form-control">
+        </div>
+        <div class="form-group col-lg-6">
+            <select class="form-control">
+              <option>Speciality</option>
+                <option>Speciality 1</option>
+                <option>Speciality 2</option>
+                <option>Speciality 3</option>
+                <option>Speciality 4</option>
+                <option>Speciality 5</option> 
+                                            
+          </select>
+        </div>
+        <div class="form-group col-lg-6">
+            <input type="text" name="" id="text1" placeholder="Code"  class="form-control">
+        </div>
+         <div class="form-group col-lg-6">
+            <label class="">Upload Photo</label>
+          <input type="file" name="" class="">
+       </div>
+    </div>
+     </div>
+          <div class="modal-footer">
+         <button type="button" class="btn btn-primary" >Sibmit</button>
+         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        
+        </div>
+    
+      </div>
+    </div>
+   
+    </body>

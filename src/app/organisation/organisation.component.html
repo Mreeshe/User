@@ -1,0 +1,181 @@
+
+
+<body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+    
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" style="height:700px  !important;"><!-- Content Header (Page header) -->
+    <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li class="active">Organisation</li>
+        </ol>
+      </section>
+  
+      <!-- Main content -->
+      <section class="content"><br/>
+        <div class="col-md-12">
+            <!-- MAP & BOX PANE -->
+            <div class="box box-primary">
+              <div class="box-header with-border">
+                <h3 class="box-title">Organisation Details</h3>
+  
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+          <i class="fa fa-minus" style="color:#fff;"></i>
+                  </button>
+               </div>
+              </div>
+              <!-- /.box-header -->
+              <div class="box-body no-padding">
+                <!-- Map will be created here -->
+            <form class="form-horizontal">
+              <div class="col-lg-12"><br/>
+                <button type="button" class="btn btn-primary" (click)="demo()">ADD ORGANISATION </button>
+            </div>
+                        <div class="col-lg-12 table-responsive" style="border:none;">&nbsp;
+                          <table class="table table-bordered" id="example2" style="width:100%;">
+            <thead>
+  
+           <tr>
+                 
+                 <th class="th">Code</th>
+                 <th class="th">Org Name</th>
+                 <th class="th">Description</th>
+                 <th class="th">Action</th>
+          </tr>
+           </thead>
+  <tbody>
+         
+                   <tr *ngFor="let profiles of profileInfo" >
+                    <td class="td">{{profiles.orgcode}}</td>
+                    <td class="td">{{profiles.orgname}}</td>
+                    <td class="td">{{profiles.description}}</td>
+                     <td class="td">
+                       <button type="button" class="btn btn-primary" data-toggle="modal" (click)="updateresource(profiles.orgid, profiles.orgname)"><i class="fa fa-edit"></i>&nbsp;Edit</button></td>
+
+                       </tr>
+
+          </tbody>
+         </table>		   
+                  </div>
+                    </form> 		    
+               
+               </div>
+          
+            </div>
+         </div>
+      
+     </section>
+   </div>
+   
+  
+  <!-- ./wrapper -->
+  <app-footer></app-footer>
+  <!-- ./modal -->
+ 
+  <div id="org" class="modal" role="dialog">
+    <div class="modal-dialog modal-md">
+  
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">
+             Add Organisation</h4>
+        </div>
+    
+        <div class="modal-body ">
+        <div class="row">
+
+<form class="" role="form" [formGroup]="postdata" (ngSubmit)="onSubmitPost()">
+
+        <div class="form-group col-lg-6">&nbsp;
+          <input type="text" name="" id="text1" formControlName="orgcode" placeholder="Code"  class="form-control">
+      </div> 
+           <div class="form-group col-lg-6">&nbsp;
+          <input type="text" name="" id="text1" formControlName="orgname" placeholder="Organisation Name"  class="form-control">
+      </div>
+      
+      
+      <div class="form-group col-lg-12">
+          <textarea input type="text" name="" id="text1" formControlName="description" placeholder="Description"  class="form-control"></textarea>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-primary" type="submit">Create</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+         
+        </div>
+      
+</form> 
+  </div>	
+     </div>
+      
+      
+      </div>
+  
+    </div>
+  </div> 
+
+
+
+  
+
+
+
+
+  <!--edit-->
+   <div id="edit" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-md"> -->
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><i class="fa  fa-edit"></i> Edit Organisation Details</h4>
+        </div>
+    
+        <div class="modal-body ">
+        <div class="row">
+            <form class=""role="form"style="border-bottom: white;" novalidate [formGroup]="putdata" (ngSubmit)="onSubmitPut()">
+
+              <div class="form-group" style="display:none;">
+                <label class="col-sm-3 control-label">Org Id</label>
+
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" name="topicid" formControlName="orgid"  value={{orgid1}} [(ngModel)]="orgid1">
+
+
+                </div>
+              </div>
+        <div class="form-group col-lg-6">&nbsp;
+          <input type="text" name="" id="text1"  formControlName="orgcode" placeholder="Code"  class="form-control" value={{orgcode1}} [(ngModel)]= "profile_id.orgcode" >
+      </div>
+        <div class="form-group col-lg-6">&nbsp;
+          <input type="text" name="" id="text1"  formControlName="orgname" placeholder="Organisation Name"  class="form-control" value={{orgname1}} [(ngModel)]= "profile_id.orgname" >
+      </div>
+      
+      <div class="form-group col-lg-12">
+          <textarea input type="text" name="" id="text1" formControlName="description" placeholder="Description"  class="form-control" value={{description1}} [(ngModel)]= "profile_id.description" ></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" type = "submit">Submit</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+         </div>
+      </form>
+  
+  </div>
+   </div>
+        
+      
+      </div>
+  
+    </div>
+  </div>
+
+</div>
+  </body>

@@ -1,0 +1,183 @@
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+    
+      <app-sidebar></app-sidebar>
+ <app-header></app-header>
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper" style="height:700px  !important;"><!-- Content Header (Page header) -->
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Sub-Organisation</li>
+          </ol>
+        </section>
+    
+        <!-- Main content -->
+        <section class="content"><br/>
+          <div class="col-md-12">
+              <!-- MAP & BOX PANE -->
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Sub-Organisation Details</h3>
+    
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+            <i class="fa fa-minus" style="color:#fff;"></i>
+                    </button>
+                 </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body no-padding">
+                  <!-- Map will be created here -->
+              <form class="form-horizontal">
+                         <div class="col-lg-12"><br/>
+                              <button type="button" class="btn btn-primary " (click)="demo()">
+                          <i class="fa fa-plus-circle"></i> ADD SUB-ORGANISATION </button>
+                          </div>
+
+                          <div class="col-lg-12 table-responsive" style="border:none;">&nbsp;
+                            <table class="table table-bordered" id="example2" style="width:100%;">
+              <thead>
+    
+             <tr>
+                   
+                   <th class="th">Code</th>
+                   <th class="th">Sub-Organisation</th>
+             <th class="th">Under Organisation</th>
+                   <th class="th">Description</th>
+                   <th class="th">Action</th>
+            </tr>
+             </thead>
+    <tbody>
+           
+                     <tr *ngFor="let profiles of profileInfo" >
+                        <td class="td">{{profiles.suborgcode}}</td>
+                        <td class="td">{{profiles.suborgname}}</td>
+                        <td class="td">{{profiles.orgname}}</td>
+                        <td class="td">{{profiles.description}}</td>
+                        <td class="td">
+                          <button type="button" class="btn btn-primary" data-toggle="modal" (click)= "updateresource(profiles.orgid,profiles.suborgid,profiles.suborgcode, profiles.suborgname, profiles.description)"><i class="fa fa-edit" ></i>&nbsp;Edit</button>
+                        </td>
+                
+                           </tr>
+            </tbody>
+           </table>		   
+                    </div>
+                      </form> 		    
+                 
+                 </div>
+            
+              </div>
+           </div>
+        
+       </section>
+     </div>
+     
+     </div>
+     <app-footer></app-footer>
+    <div id="suborg" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-md">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"><i class="fa  fa-plus-square"></i> Add Sub-Organisation</h4>
+          </div>
+      
+          <div class="modal-body ">
+          <div class="row">
+              <form class="" role="form" [formGroup]="postdata" (ngSubmit)="onSubmitPost()">
+
+          <div class="form-group col-lg-6">
+            <input type="text" name="" id="text1"  formControlName="suborgcode" placeholder="Code"  class="form-control">
+        </div>
+          <div class="form-group col-lg-6">
+            <input type="text" name="" id="text1"  formControlName="suborgname" placeholder="Sub-Organisation Name"  class="form-control">
+        </div>
+        <div class="form-group col-lg-6">
+            <select class="form-control" formControlName="orgid">
+              <option>Under Organisation</option>
+               
+<option *ngFor="let profiles1 of profileInfo1" value={{profiles1.orgid}}>
+{{profiles1.orgname}}
+</option>                               
+          </select>
+        </div>
+        <div class="form-group col-lg-6">
+            <textarea input type="text" name="" id="text1"  formControlName="description" placeholder="Description"  class="form-control"></textarea>
+        </div>
+      
+        <div class="modal-footer">
+          
+            <button type="button"  type="submit" class="btn btn-primary" >Create</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+             </div>
+              </form>  
+    </div>	
+       </div>
+          
+        
+        </div>
+    
+      </div>
+    </div>
+    <!--edit-->
+    <div id="edit" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-md">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"><i class="fa  fa-edit"></i> Edit Sub-Organisation Details</h4>
+          </div>
+      
+          <div class="modal-body ">
+          <div class="row">
+
+              <form class=""role="form"style="border-bottom: white;" novalidate [formGroup]="putdata" (ngSubmit)="onSubmitPut()">
+                   <div class="form-group" style="display:none;">
+                      <label class="col-sm-3 control-label">SubOrg Id</label>
+      
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" name="suborgid" formControlName="suborgid"  value={{suborgid1}} [(ngModel)]="suborgid1">
+      
+      
+                      </div>
+                    </div> 
+          <div class="form-group col-lg-6">
+            <input type="text" name="" id="text1"  formControlName="suborgcode" placeholder="Code"  class="form-control" value={{suborgcode1}} [(ngModel)]= "profile_id.suborgcode">
+        </div>
+          <!-- <div class="form-group col-lg-6">
+            <input type="text" name="" id="text1" placeholder="Sub-Organisation Name"  class="form-control" value={{suborgname1}} [(ngModel)]= "profile_id.suborgname">
+        </div>
+        <div class="form-group col-lg-6">
+            <select class="form-control"  formControlName="orgid">
+              <option>Under Organisation</option>
+                      
+<option *ngFor="let profiles1 of profileInfo1" value={{profiles1.orgid}}>
+    {{profiles1.orgname}}
+    </option> 
+            </select>
+        </div> -->
+        <!-- <div class="form-group col-lg-6">
+            <textarea input type="text" name="" id="text1"  formControlName="description" placeholder="Description"  class="form-control" value={{description1}} [(ngModel)]= "profile_id.description"></textarea>
+        </div> -->
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" type="submit" >Submit</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+             </div> 
+        </form>
+    </div>
+     </div>
+           
+            
+        </div>
+    
+      </div>
+    </div>
+    
+    </body>
+    

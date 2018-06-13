@@ -1,0 +1,168 @@
+
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+    
+     <app-header></app-header>
+     <app-sidebar></app-sidebar>
+    
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Article</li>
+          </ol>
+        </section>
+    
+        <!-- Main content -->
+        <section class="content"><br/>
+          <div class="col-md-12">
+              <!-- MAP & BOX PANE --> 
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Article Details</h3>
+    <button type="button" class="btn btn-primary"  (click)="demo()">
+                          <i class="fa fa-plus-circle"></i> ADD NEW ARTICLE </button>
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+            <i class="fa fa-minus" style="color:#faad3b;"></i>
+                    </button>
+                 </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body no-padding"  *ngFor="let profiles of profileInfo">
+                  <!-- Map will be created here -->
+                  <form class=""role="form"style="border-bottom: white;" >
+           
+                          <div class="col-lg-12">
+                          <div class="col-lg-12"><h2>
+                            <b>{{profiles.articleid}}.{{profiles.articlename}}</b></h2></div>
+                          <div class="col-lg-12"><i class="fa fa-user">&nbsp;{{profiles.title}}</i>&nbsp;&nbsp;<i class="fa fa-clock-o">&nbsp;Febuary 8/2017</i></div>
+                            <div class="col-lg-6"><img src="assets/dist/img/art1.jpg" class="img-responsive" width="100%"></div>
+                            <div class="col-lg-6">
+                              <p class="text-justify">{{profiles.description}}</p>
+                              <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#whr">Read More...</button>
+                          
+                            </div>
+                          </div>
+                          
+                        
+                      </form> 		    
+                 
+                 </div>
+            
+              </div>
+           </div>
+        
+       </section>
+     </div>
+     <app-footer></app-footer>
+    
+     </div>
+    <!-- ./wrapper -->
+    <!-- ./modal -->
+    <div id="bmi" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-md">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"><i class="fa  fa-plus-square"></i> Add Article</h4>
+          </div>
+      
+          <div class="modal-body ">
+          <div class="row">
+          <div class="form-group col-lg-6">
+            <input type="text" name="" id="text1" placeholder="Article Name"  class="form-control">
+        </div>
+       <div class="form-group col-lg-6">
+            <label class="">Upload Photo</label>
+          <input type="file" name="" class="">
+       </div>
+        <div class="form-group col-lg-12">
+            <textarea input type="text" name="" id="text1" placeholder="Description"  class="form-control"></textarea>
+        </div>
+      
+        
+    </div>	
+       </div>
+          <div class="modal-footer">
+         <button type="button" class="btn btn-primary" >Create</button>
+         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        
+        </div>
+    
+      </div>
+    </div>
+    <div id="whr" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-md">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"><i class="fa  fa-newspaper-o"></i> ARTICLE DETAILS</h4>
+          </div>
+      
+          <div class="modal-body ">
+          <div class="row">
+        
+        <div class="form-group col-lg-12">
+          <div class="col-lg-12"><h2><b>1.Maligant Disease</b></h2></div>
+          <div class="col-lg-12">
+                              <p class="text-justify">Malignant disease was defined as high-grade dysplasia or invasive adenocarcinoma on results of surgical pathologic evaluation. An appropriate MPD diameter on preoperative CT or MRI to predict malignant disease was determined using a receiver operating characteristic curve analysis. The prognostic value of the new management algorithm that incorporated the new MPD diameter cutoff was evaluated.</p>
+                                <p class="text-justify">Malignant disease was defined as high-grade dysplasia or invasive adenocarcinoma on results of surgical pathologic evaluation. An appropriate MPD diameter on preoperative CT or MRI to predict malignant disease was determined using a receiver operating characteristic curve analysis. The prognostic value of the new management algorithm that incorporated the new MPD diameter cutoff was evaluated.</p>
+                     
+                            </div>
+        </div>
+          
+           
+    </div>	
+       </div>
+          <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        
+        </div>
+    
+      </div>
+    </div>
+    <!--edit-->
+    <div id="edit" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-md">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"><i class="fa  fa-edit"></i> Edit Article Details</h4>
+          </div>
+      
+          <div class="modal-body ">
+          <div class="row">
+          <div class="form-group col-lg-6">&nbsp;
+            <input type="text" name="" id="text1" placeholder="Article Name"  class="form-control">
+        </div>
+       
+        <div class="form-group col-lg-12">
+            <textarea input type="text" name="" id="text1" placeholder="Description"  class="form-control"></textarea>
+        </div>
+      
+        
+    </div>
+     </div>
+          <div class="modal-footer">
+         <button type="button" class="btn btn-primary" >Sibmit</button>
+         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        
+        </div>
+    
+      </div>
+    </div>
+
+    </body>
+    
